@@ -2,16 +2,11 @@
 
 Repositório da disciplina Gestão de Projetos do 4° semestre do curso de Análise e Desenvolvimento de Sistemas (ADS).
 
-**Professor:** Me. Deivison S. Takatu  
-**Semestre:** 4
-
----
 
 ## Sobre a Disciplina
 
 A disciplina aborda conceitos e práticas de gerenciamento de projetos com base no PMBOK e em metodologias ágeis, utilizando a metodologia PBL (Aprendizagem Baseada em Projetos) como estratégia de ensino.
 
----
 
 ## Estrutura do Repositório
 
