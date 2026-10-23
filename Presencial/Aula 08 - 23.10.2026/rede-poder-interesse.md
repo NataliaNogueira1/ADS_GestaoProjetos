@@ -70,25 +70,25 @@ A matriz cruza **poder** (eixo vertical) com **interesse** (eixo horizontal), de
 
 ```mermaid
 quadrantChart
-    title Rede de Poder/Interesse - FieldOps
+    title Rede de Poder e Interesse - FieldOps
     x-axis Baixo Interesse --> Alto Interesse
     y-axis Baixo Poder --> Alto Poder
     quadrant-1 Gerenciar com atencao
     quadrant-2 Manter satisfeito
     quadrant-3 Monitorar
     quadrant-4 Manter informado
-    Patrocinador (Toyota): [0.85, 0.92]
-    Cliente / PO: [0.88, 0.85]
-    Professor: [0.80, 0.82]
-    Gerente (Natalia): [0.90, 0.88]
-    Orgaos regulamentadores: [0.20, 0.80]
-    Lideres de area: [0.82, 0.68]
-    Equipe de dev: [0.78, 0.25]
-    Tecnicos de campo: [0.85, 0.22]
-    Admin / Revisores: [0.80, 0.45]
-    Fornecedores: [0.25, 0.50]
-    Instituicao (SENAI): [0.50, 0.52]
-    Comunidade: [0.20, 0.20]
+    PI-01 Patrocinador: [0.85, 0.92]
+    PI-02 Cliente PO: [0.88, 0.85]
+    PI-03 Professor: [0.80, 0.82]
+    PI-04 Gerente: [0.90, 0.88]
+    PI-10 Orgaos regul: [0.20, 0.80]
+    PI-05 Lideres de area: [0.82, 0.68]
+    PI-06 Equipe de dev: [0.78, 0.25]
+    PI-07 Tecnicos de campo: [0.85, 0.22]
+    PI-08 Admin Revisores: [0.80, 0.45]
+    PI-09 Fornecedores: [0.25, 0.50]
+    PI-11 Instituicao: [0.50, 0.52]
+    PI-12 Comunidade: [0.20, 0.20]
 ```
 
 ---
