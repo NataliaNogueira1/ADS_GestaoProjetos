@@ -42,32 +42,6 @@ A análise toma como base os artefatos de planejamento já produzidos pela equip
 
 A matriz cruza **poder** (eixo vertical) com **interesse** (eixo horizontal), definindo a estratégia de engajamento de cada quadrante:
 
-```
-       ALTO  ┌──────────────────────────┬──────────────────────────┐
-             │                          │                          │
-             │     MANTER SATISFEITO    │   GERENCIAR COM ATENÇÃO   │
-             │                          │                          │
-    P        │  PI-10 Órgãos regul.     │  PI-01 Patrocinador       │
-    O        │                          │  PI-02 Cliente / PO       │
-    D        │                          │  PI-03 Professor          │
-    E        │                          │  PI-04 Gerente (Natália)  │
-    R        ├──────────────────────────┼──────────────────────────┤
-             │                          │                          │
-             │        MONITORAR         │     MANTER INFORMADO      │
-             │                          │                          │
-             │  PI-12 Comunidade        │  PI-05 Líderes de área    │
-             │  PI-09 Fornecedores*     │  PI-06 Equipe de dev      │
-             │  PI-11 Instituição*      │  PI-07 Técnicos de campo  │
-             │                          │  PI-08 Admin/Revisores    │
-       BAIXO └──────────────────────────┴──────────────────────────┘
-              BAIXO                          ALTO
-                             INTERESSE
-```
-
-> *\*PI-09 (Fornecedores) e PI-11 (Instituição) têm poder médio e interesse de médio a baixo; foram posicionados na faixa limítrofe entre "Monitorar" e "Manter satisfeito/informado" e são tratados com o esforço de engajamento correspondente ao quadrante mais próximo.*
-
-### 3.1 Versão em diagrama
-
 ```mermaid
 quadrantChart
     title Rede de Poder e Interesse - FieldOps
@@ -90,6 +64,8 @@ quadrantChart
     PI-11 Instituicao: [0.50, 0.52]
     PI-12 Comunidade: [0.20, 0.20]
 ```
+
+> *PI-09 (Fornecedores) e PI-11 (Instituição) têm poder médio e interesse de médio a baixo; foram posicionados na faixa limítrofe entre "Monitorar" e "Manter satisfeito/informado" e são tratados com o esforço de engajamento correspondente ao quadrante mais próximo.*
 
 ---
 
