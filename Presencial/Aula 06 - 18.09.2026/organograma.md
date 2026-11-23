@@ -11,7 +11,7 @@
 
 Este documento apresenta a **estrutura hierárquica** do projeto FieldOps e os **principais responsáveis**, no formato gráfico de cima para baixo, conforme a técnica de organograma tradicional. Ele mostra posições, papéis e as relações de subordinação entre os integrantes das áreas de Backend, Web, Mobile e Nuvem/Infraestrutura.
 
-A estrutura reflete a equipe descrita no `README.md` do repositório e a governança definida na EAP (`docs/EAP.md`), em que a **Natália** atua como Gerente do Projeto.
+A estrutura reflete a equipe registrada no [Termo de Abertura do Projeto](../Aula%2002%20-%2014.08.2026/Modelo%20-%204.1%20Termo%20de%20Abertura%20de%20Projeto.pdf) (Aula 02) e na [EAP](../Aula%2003%20-%2021.08.2026/aula03-EAP.pdf) (Aula 03), em que a **Natália** atua como Gerente do Projeto.
 
 ---
 
@@ -90,7 +90,7 @@ Responsável pela **gestão e planejamento** (EAP, backlog, cronograma), pela co
 
 ### 4.3 Líderes de área
 - **Marcela — Líder Backend + Nuvem:** conduz a API REST (Java + Spring Boot), autenticação, regras de negócio, persistência e sincronização, e apoia a infraestrutura/nuvem (ambientes, banco, pipeline). É a **aprovadora** das entregas de backend.
-- **Júlia — Líder Web + Nuvem:** conduz a interface administrativa (React/Vite) e apoia a infraestrutura/nuvem.
+- **Júlia — Líder Web + Nuvem:** conduz a interface administrativa (Next.js) e apoia a infraestrutura/nuvem.
 - **Natália — Líder Mobile:** conduz o aplicativo (Expo/React Native), acumulando com a gerência do projeto.
 
 ### 4.4 Desenvolvedores

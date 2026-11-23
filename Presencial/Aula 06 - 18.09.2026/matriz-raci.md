@@ -2,7 +2,7 @@
 
 > **Projeto:** FieldOps — Plataforma de Inspeção em Campo
 > **Documento:** Matriz de Responsabilidades (RACI)
-> **Base:** 48 cards (PBIs) cobrindo **todas as áreas** do projeto (mínimo de 40 exigido) — `docs/cronograma.md` e backlog do repositório
+> **Base:** 48 cards (PBIs) cobrindo **todas as áreas** do projeto (mínimo de 40 exigido) — [cronograma](../Aula%2004%20-%2028.08.2026/cronograma.md) (Aula 04) e [EAP](../Aula%2003%20-%2021.08.2026/aula03-EAP.pdf) (Aula 03)
 > **Versão:** 1.0
 
 ---
@@ -73,7 +73,7 @@ A **Matriz RACI** é uma matriz de responsabilidades (MR) que mostra os recursos
 
 | # | Card / Atividade | NAT | LUC | MAR | JUL | AND | CAR | IAN | ROD | FEL |
 |---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| PBI-003 | Projeto React + Vite com layout e rotas protegidas | A | I | I | R | R | C | C | I | I |
+| PBI-003 | Projeto Next.js com layout e rotas protegidas | A | I | I | R | R | C | C | I | I |
 | PBI-005 | Lint, verificação de tipos e fluxo de PR | A | C | C | R | C | C | C | I | I |
 | PBI-009 | Login e sessão na interface web | A | C | I | R | R | C | I | I | I |
 | PBI-017 | Pesquisa, filtros e paginação nos cadastros (telas) | A | C | I | R | C | R | C | I | I |
