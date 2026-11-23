@@ -22,7 +22,7 @@ O TAP autoriza formalmente o investimento do projeto nos seguintes termos:
 | Parâmetro do TAP | Valor |
 |---|---|
 | Estimativa de investimentos | **R$ 204.000,00** |
-| Base de esforço | 9 desenvolvedores × ~3.400 horas de trabalho |
+| Base de esforço | 9 desenvolvedores, totalizando ~3.400 horas de trabalho |
 | Estimativa de prazo | 3 meses, a partir de agosto/2026 |
 | Patrocinador (sponsor) | Fundação Toyota do Brasil |
 | Gerente do projeto | Natália Nogueira |
@@ -36,7 +36,7 @@ O TAP autoriza formalmente o investimento do projeto nos seguintes termos:
 | Premissa | Valor adotado |
 |---|---|
 | Regime de trabalho | Equipe de 9 integrantes (conforme TAP) |
-| Esforço total de mão de obra | ~3.400 horas (conforme TAP) |
+| Esforço total de mão de obra | ~3.400 horas no total, somando toda a equipe (conforme TAP) |
 | Duração base | 3 meses a partir de agosto/2026 (conforme TAP) |
 | Custo-hora — Desenvolvedor (Back/Web/Mobile) | R$ 50,00 |
 | Custo-hora — Gerente / Coordenador de Projeto | R$ 90,00 |
@@ -66,13 +66,17 @@ cE = (cO + 4·cM + cP) / 6
 
 ### 3.1 Aplicação em pacotes-chave
 
-| Pacote de trabalho | cO (R$) | cM (R$) | cP (R$) | cE = (cO+4cM+cP)/6 |
-|---|---:|---:|---:|---:|
-| API — Autenticação e autorização (JWT) | 6.000 | 8.000 | 12.000 | **8.333,33** |
-| Sincronização offline (mobile ↔ API) | 8.000 | 10.500 | 15.000 | **10.833,33** |
-| Construtor de modelos de inspeção (web) | 7.000 | 9.500 | 13.500 | **9.750,00** |
-| Execução de checklist dinâmico (mobile) | 7.500 | 10.000 | 14.500 | **10.166,67** |
-| Provisionamento de infraestrutura/nuvem | 5.000 | 7.500 | 11.000 | **7.583,33** |
+O custo esperado (cE) de cada pacote é o valor adotado no item correspondente da Categoria A (seção 4). Dessa forma, a estimativa de três pontos é a origem do valor orçado, e não um cálculo paralelo.
+
+| Pacote de trabalho | Item(ns) da Categoria A | cO (R$) | cM (R$) | cP (R$) | cE = (cO+4cM+cP)/6 |
+|---|---|---:|---:|---:|---:|
+| API — Autenticação e autorização (JWT) | A2 | 6.000 | 8.000 | 11.500 | **8.250,00** |
+| Sincronização offline (mobile ↔ API) | A6 + A16 (10.750 + 10.750) | 16.000 | 21.000 | 29.000 | **21.500,00** |
+| Construtor de modelos de inspeção (web) | A10 | 7.000 | 9.500 | 13.500 | **9.750,00** |
+| Execução de checklist dinâmico (mobile) | A14 | 7.500 | 10.000 | 14.000 | **10.250,00** |
+| Provisionamento de infraestrutura/nuvem (DevOps) | A17 | 5.000 | 7.500 | 11.200 | **7.700,00** |
+
+> Conferência: A2 = 165 h × R$ 50 = R$ 8.250; A6 + A16 = 430 h × R$ 50 = R$ 21.500; A10 = 195 h × R$ 50 = R$ 9.750; A14 = 205 h × R$ 50 = R$ 10.250; A17 = 110 h × R$ 70 = R$ 7.700.
 
 ---
 
@@ -124,11 +128,13 @@ cE = (cO + 4·cM + cP) / 6
 | # | Item / Atividade | Qtd | Unid | Vlr Unitário (R$) | Total (R$) | Responsável |
 |---|---|---:|---|---:|---:|---|
 | C1 | Licença Figma (design/protótipo) | 2 | mês | 75,00 | 150,00 | Andressa |
-| C2 | Conta de distribuição Google Play (build APK) | 1 | única | 135,00 | 135,00 | Rodrigo |
+| C2 | Conta Expo (Expo Build/EAS) para gerar o APK — plano gratuito | 1 | conta | 0,00 | 0,00 | Rodrigo |
 | C3 | Ferramenta de gestão de projeto (board/backlog) | 2 | mês | 50,00 | 100,00 | Natália |
 | C4 | IDEs e plugins premium | 9 | licença | 40,00 | 360,00 | Equipe completa |
 | C5 | Ferramenta de testes de API (ex.: Postman) | 2 | mês | 60,00 | 120,00 | Lucas |
-| | **Subtotal C — Ferramentas e Licenças** | | | | **865,00** | |
+| | **Subtotal C — Ferramentas e Licenças** | | | | **730,00** | |
+
+> O APK de demonstração é gerado pelo Expo Build (EAS), que exige uma conta Expo. O plano gratuito inclui até 15 builds Android por mês, suficiente para o projeto; a fila é de baixa prioridade, por isso os builds de demonstração devem ser disparados com antecedência. Não é necessária conta no Google Play, pois o APK é instalado diretamente nos dispositivos de teste.
 
 ### Categoria D — Equipamentos e Materiais
 
@@ -144,8 +150,8 @@ cE = (cO + 4·cM + cP) / 6
 
 | # | Item / Atividade | Qtd | Unid | Vlr Unitário (R$) | Total (R$) | Responsável |
 |---|---|---:|---|---:|---:|---|
-| E1 | Reserva de contingência (~7,7% dos custos diretos) | 1 | verba | 14.605,00 | 14.605,00 | Natália (GP) |
-| | **Subtotal E — Contingência** | | | | **14.605,00** | |
+| E1 | Reserva de contingência (~7,8% dos custos diretos) | 1 | verba | 14.740,00 | 14.740,00 | Natália (GP) |
+| | **Subtotal E — Contingência** | | | | **14.740,00** | |
 
 ---
 
@@ -155,10 +161,10 @@ cE = (cO + 4·cM + cP) / 6
 |---|---:|---:|
 | A — Recursos Humanos | 184.950,00 | 90,7% |
 | B — Infraestrutura e Nuvem | 1.480,00 | 0,7% |
-| C — Ferramentas e Licenças | 865,00 | 0,4% |
+| C — Ferramentas e Licenças | 730,00 | 0,4% |
 | D — Equipamentos e Materiais | 2.100,00 | 1,0% |
-| **Subtotal — Custos Diretos** | **189.395,00** | **92,8%** |
-| E — Reserva de Contingência | 14.605,00 | 7,2% |
+| **Subtotal — Custos Diretos** | **189.260,00** | **92,8%** |
+| E — Reserva de Contingência | 14.740,00 | 7,2% |
 | **TOTAL GERAL DO PROJETO** | **204.000,00** | **100%** |
 
 > **Total de itens orçados:** 37 itens distribuídos em 5 categorias (20 de RH, 7 de infraestrutura, 5 de ferramentas, 4 de equipamentos e 1 de contingência).
@@ -172,5 +178,5 @@ cE = (cO + 4·cM + cP) / 6
 - O orçamento foi elaborado de forma a **respeitar a linha de base de R$ 204.000,00 autorizada no TAP**, distribuindo esse valor em categorias e itens detalhados.
 - O maior peso está em **Recursos Humanos** (90,7%), coerente com o TAP, cuja estimativa parte da mão de obra de 9 desenvolvedores por ~3.400 horas. O esforço aqui distribuído (3.425 h) e o custo-hora médio (~R$ 54,00) reproduzem essa base.
 - Os custos de **nuvem e ferramentas** foram estimados por assinatura mensal ao longo do período do projeto.
-- A **reserva de contingência** (~7,7% dos custos diretos, R$ 14.605,00) mantém o total dentro do teto do TAP e cobre riscos como retrabalho de sincronização offline e ajustes no construtor de modelos, itens identificados como de maior incerteza na estimativa de três pontos.
+- A **reserva de contingência** (~7,8% dos custos diretos, R$ 14.740,00) mantém o total dentro do teto do TAP e cobre riscos como retrabalho de sincronização offline e ajustes no construtor de modelos, itens identificados como de maior incerteza na estimativa de três pontos. O valor corresponde ao valor monetário esperado (VME) dos riscos calculado na Análise de Riscos (Aula 07).
 - Este orçamento constitui a **linha de base de custos** do FieldOps e deverá ser monitorado no processo *7.4 — Controlar os custos*, comparando o previsto com o realizado ao longo das sprints.
