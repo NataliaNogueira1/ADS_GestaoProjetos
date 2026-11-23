@@ -17,7 +17,13 @@ Definir uma abordagem apropriada para as comunicações do projeto FieldOps, com
 
 | Parte interessada | Interesse principal | Canal preferencial |
 |---|---|---|
+| Patrocinador — Fundação Toyota do Brasil | Retorno do investimento e resultados do projeto | Demonstração ao final de cada sprint (presencial/Meet) |
 | Cliente / Product Owner | Valor entregue, andamento do MVP | Reunião + e-mail |
+| Organizações responsáveis pela execução das inspeções | Adoção da plataforma no processo de inspeção | Reunião + e-mail |
+| Clientes atendidos pelas organizações | Confiabilidade e rapidez dos resultados das inspeções | E-mail (por meio das organizações) |
+| Supervisores de inspeção | Planejamento, acompanhamento e revisão das inspeções no painel web | Sessões de validação + homologação |
+| Administradores do sistema | Cadastros, usuários e configuração de modelos | Sessões de validação + homologação |
+| Técnicos de campo | Aplicativo simples, confiável e com uso offline | Testes de campo + demonstrações |
 | Gerente de Projeto (Natália) | Andamento geral, riscos, impedimentos | Todos |
 | Líderes de área (Marcela, Júlia, Natália) | Coordenação técnica entre frentes | Reunião + GitHub |
 | Equipe de desenvolvimento | Tarefas, dúvidas técnicas, integração | WhatsApp + GitHub |
@@ -37,7 +43,11 @@ Definir uma abordagem apropriada para as comunicações do projeto FieldOps, com
 | **Revisão de código (Pull Request)** | Contínua (a cada PR) | GitHub — Pull Requests (assíncrono) | Área responsável + revisores | Autor do PR | Descrição do PR + comentários de review | A cada entrega de código |
 | **Acompanhamento do backlog / board** | Contínua | GitHub Issues / Projects (assíncrono) | Toda a equipe | Natália (GP) | Cards (PBIs) com status e responsáveis | Ao longo da sprint |
 | **Contrato de API (OpenAPI/Swagger)** | A cada mudança | GitHub + Swagger UI (assíncrono) | Backend, Web, Mobile | Marcela (Líder Backend) | Documentação OpenAPI publicada | A cada alteração de endpoint |
-| **Relatório de status ao Cliente/PO** | Quinzenal / por sprint | E-mail (assíncrono) | Cliente / Product Owner | Natália (GP) | Resumo de progresso, riscos e próximos passos | Fim de cada sprint |
+| **Relatório de status ao Cliente/PO** | Por sprint | E-mail (assíncrono) | Cliente / Product Owner | Natália (GP) | Resumo de progresso, riscos e próximos passos | Fim de cada sprint |
+| **Demonstração ao Patrocinador** | A cada sprint | Reunião — presencial/Meet (síncrono) | Fundação Toyota do Brasil | Natália (GP) | Apresentação de resultados + demonstração do sistema | Fim de cada sprint |
+| **Sessões de validação com usuários** | A cada sprint | Reunião presencial/Meet + ambiente de homologação (síncrono) | Supervisores, administradores e técnicos de campo | Líderes de área | Demonstração guiada + coleta de feedback de usabilidade | Fim da sprint, antes da revisão |
+| **Testes de campo do aplicativo** | Conforme necessário | Visita de campo com dispositivos Android (síncrono) | Técnicos de campo | Natália (Líder Mobile) | Execução de inspeções reais com o app + registro de problemas | Após builds de demonstração (APK) |
+| **Comunicado de entrega às organizações e clientes** | Uma vez (marco) | E-mail (assíncrono) | Organizações responsáveis pelas inspeções e seus clientes | Natália (GP) | Comunicado com o que foi entregue e como os resultados das inspeções passam a ser disponibilizados | Entrega final (24/11/2026) |
 | **Comunicação de riscos e impedimentos** | Conforme necessário | WhatsApp / Google Meet (síncrono) | GP + Líderes + envolvidos | Quem identifica o risco | Alerta + plano de ação | Ao surgir o risco |
 | **Documentação do projeto (docs/)** | Conforme necessário | Repositório GitHub (assíncrono) | Toda a equipe + Orientador | Autor do documento | Arquivos Markdown versionados | A cada atualização |
 | **Entrega final / apresentação do MVP** | Uma vez (marco) | Reunião — presencial/Meet (síncrono) | Cliente/PO + Orientador + Equipe | Natália (GP) | Apresentação + demonstração ponta a ponta | Encerramento do projeto |
@@ -48,8 +58,11 @@ Definir uma abordagem apropriada para as comunicações do projeto FieldOps, com
 
 ```mermaid
 flowchart TD
+    SP["Fundacao Toyota do Brasil<br/>Patrocinador"]
     PO["Cliente / Product Owner"]
     ORI["Professor / Orientador"]
+    ORG["Organizacoes de inspecao<br/>e seus clientes"]
+    USR["Usuarios<br/>Supervisores, administradores<br/>e tecnicos de campo"]
     GP["Natalia<br/>Gerente de Projeto"]
 
     LB["Marcela<br/>Lider Backend + Nuvem"]
@@ -64,8 +77,11 @@ flowchart TD
     WPP["WhatsApp<br/>Daily / alertas"]
     MEET["Google Meet<br/>Cerimonias Scrum"]
 
-    PO <-->|"Status quinzenal (e-mail)<br/>Demo (Meet)"| GP
+    PO <-->|"Status por sprint (e-mail)<br/>Demo (Meet)"| GP
     ORI <-->|"Evolucao e entregas"| GP
+    SP <-->|"Demo ao fim de cada sprint"| GP
+    GP -->|"Comunicado de entrega (e-mail)"| ORG
+    USR <-->|"Validacao e testes de campo"| GP
 
     GP -->|"Planejamento / metas"| LB
     GP -->|"Planejamento / metas"| LW
@@ -97,7 +113,7 @@ flowchart TD
     classDef eq fill:#FFFFFF,stroke:#2563EB,color:#1E293B;
     classDef canal fill:#0F766E,stroke:#0F766E,color:#fff;
 
-    class PO,ORI ext;
+    class SP,PO,ORI,ORG,USR ext;
     class GP gp;
     class LB,LW,LM lider;
     class EQB,EQW,EQM eq;
@@ -115,8 +131,10 @@ flowchart TD
 | **GitHub (Issues/Projects)** | Assíncrono | Backlog, acompanhamento de cards (PBIs) e status |
 | **GitHub (Pull Requests)** | Assíncrono | Revisão de código e integração entre áreas |
 | **Swagger UI / OpenAPI** | Assíncrono | Contrato da API compartilhado entre Backend, Web e Mobile |
-| **E-mail** | Assíncrono | Relatórios de status formais ao Cliente/PO e Orientador |
-| **Repositório `docs/`** | Assíncrono | Documentação versionada do projeto |
+| **E-mail** | Assíncrono | Relatórios de status formais ao Cliente/PO e Orientador; comunicado de entrega às organizações e clientes |
+| **Reunião presencial / Meet com o patrocinador** | Síncrono | Demonstração ao final de cada sprint à Fundação Toyota do Brasil |
+| **Ambiente de homologação + visitas de campo** | Síncrono | Validação com supervisores, administradores e técnicos de campo |
+| **Repositório `docs/`** | Assíncrono | Documentação versionada do projeto (pasta `docs/` do repositório do FieldOps, pacote 5.4.2 da EAP) |
 
 ---
 
