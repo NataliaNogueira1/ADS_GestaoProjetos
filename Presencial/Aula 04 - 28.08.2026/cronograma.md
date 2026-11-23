@@ -1,8 +1,18 @@
 # Cronograma do Projeto — FieldOps
 
+## Resumo das Sprints
+
+| Sprint | Período | Foco |
+|--------|---------|------|
+| Sprint 1 | 21/08/2026 → 18/09/2026 | Fundação, cadastros, modelos de inspeção e execução básica no mobile |
+| Sprint 2 | 19/09/2026 → 02/10/2026 | Sincronização offline, evidências, revisão e MVP P0 |
+| Sprint 3 | 03/10/2026 → 24/11/2026 (em andamento) | Funcionalidades P1, estabilização e entrega final |
+
+---
+
 ## Sprint 1
 
-> Período: 14/09/2026 → 18/09/2026
+> Período: 21/08/2026 → 18/09/2026
 
 ### Equipe Completa
 
@@ -81,7 +91,7 @@
 
 ## Sprint 2
 
-> Período: 19/09/2026 → 19/09/2026  
+> Período: 19/09/2026 → 02/10/2026  
 
 ### Backend (Lucas e Marcela)
 
@@ -95,12 +105,6 @@
 | PBI-066 | Dados de demonstração reproduzíveis (seed) |
 | PBI-070 | API em contêiner Docker para demonstração |
 | PBI-071 | OpenAPI completo e diagramas |
-| PBI-073 | *P1:* Dashboard com indicadores por estado e criticidade (API) |
-| PBI-075 | *P1:* Notificações push — integração servidor |
-| PBI-077 | *P1:* Relatório PDF básico |
-| PBI-078 | *P1:* Histórico detalhado de respostas |
-| PBI-079 | *P1:* Comentários de revisão por item |
-| PBI-082 | *P1:* Exportação CSV |
 
 ### Frontend Web (Andressa, Ian, Júlia e Carol)
 
@@ -113,12 +117,6 @@
 | PBI-059 | Iniciar revisão formalmente |
 | PBI-064 | Estados de carregamento, vazio, erro e offline |
 | PBI-069 | Build e publicação do painel web admin |
-| PBI-073 | *P1:* Dashboard com indicadores (telas) |
-| PBI-077 | *P1:* Relatório PDF básico (visualização/download) |
-| PBI-078 | *P1:* Histórico detalhado de respostas (telas) |
-| PBI-079 | *P1:* Comentários de revisão por item (telas) |
-| PBI-081 | *P1:* Tema escuro |
-| PBI-082 | *P1:* Exportação CSV (botão e download) |
 
 ### Mobile (Rodrigo, Natália e Cutiur)
 
@@ -141,11 +139,51 @@
 | PBI-067 | READMEs com instruções de execução |
 | PBI-068 | Build Android (APK) para demonstração |
 | PBI-072 | Demonstração ponta a ponta |
+
+---
+
+## Sprint 3
+
+> Período: 03/10/2026 → 24/11/2026 (sprint atual, encerra na entrega final)
+
+### Backend (Lucas e Marcela)
+
+| PBI | Título |
+|-----|--------|
+| PBI-073 | *P1:* Dashboard com indicadores por estado e criticidade (API) |
+| PBI-075 | *P1:* Notificações push — integração servidor |
+| PBI-077 | *P1:* Relatório PDF básico |
+| PBI-078 | *P1:* Histórico detalhado de respostas |
+| PBI-079 | *P1:* Comentários de revisão por item |
+| PBI-082 | *P1:* Exportação CSV |
+
+### Frontend Web (Andressa, Ian, Júlia e Carol)
+
+| PBI | Título |
+|-----|--------|
+| PBI-073 | *P1:* Dashboard com indicadores (telas) |
+| PBI-077 | *P1:* Relatório PDF básico (visualização/download) |
+| PBI-078 | *P1:* Histórico detalhado de respostas (telas) |
+| PBI-079 | *P1:* Comentários de revisão por item (telas) |
+| PBI-081 | *P1:* Tema escuro |
+| PBI-082 | *P1:* Exportação CSV (botão e download) |
+
+### Mobile (Rodrigo, Natália e Cutiur)
+
+| PBI | Título |
+|-----|--------|
 | PBI-074 | *P1:* Notificações locais de prazo |
 | PBI-075 | *P1:* Notificações push de nova atribuição |
 | PBI-076 | *P1:* Assinatura desenhada no dispositivo |
 | PBI-080 | *P1:* Biometria para reabertura de sessão local |
 | PBI-081 | *P1:* Tema escuro (mobile) |
+
+### Equipe Completa
+
+| Atividade | Título |
+|-----|--------|
+| — | Homologação, correções e documentação final |
+| — | Entrega final do projeto (24/11/2026) |
 
 ---
 
@@ -153,7 +191,7 @@
 
 ```mermaid
 gantt
-    title FieldOps - Cronograma 2 Sprints
+    title FieldOps - Cronograma 3 Sprints
     dateFormat  YYYY-MM-DD
     axisFormat  %d/%m
 
@@ -187,40 +225,50 @@ gantt
     Offline basico                         :mo7, after mo3, 5d
 
     section Backend S2
-    Sync em lote + Idempotencia            :b10, 2026-09-12, 5d
-    Aprovacao + Reprovacao                 :b11, 2026-09-12, 4d
+    Sync em lote + Idempotencia            :b10, 2026-09-19, 5d
+    Aprovacao + Reprovacao                 :b11, 2026-09-19, 4d
     Auditoria                              :b12, after b11, 3d
-    Seed + Docker + OpenAPI                :b13, 2026-09-26, 5d
-    P1 - Dashboard API                     :b14, after b13, 3d
-    P1 - Push + PDF + CSV                  :b15, after b14, 4d
-    P1 - Historico + Comentarios           :b16, after b14, 3d
+    Seed + Docker + OpenAPI                :b13, after b10, 5d
 
     section Web S2
+    Estados de interface                   :w10, 2026-09-19, 5d
     Revisao - lista + secao + fotos        :w8, after b11, 6d
     Evidencias + NCs no admin              :w9, after w8, 4d
-    Estados de interface                   :w10, 2026-09-12, 5d
-    Build web admin                        :w11, 2026-09-28, 3d
-    P1 - Dashboard telas                   :w12, after w11, 3d
-    P1 - Tema escuro + PDF + CSV           :w13, after w12, 3d
-    P1 - Historico + Comentarios           :w14, after w12, 3d
+    Build web admin                        :w11, 2026-09-30, 3d
 
     section Mobile S2
-    Conclusao + validacao                  :mo8, 2026-09-12, 3d
-    QR Code                                :mo9, 2026-09-12, 3d
+    Conclusao + validacao                  :mo8, 2026-09-19, 3d
+    QR Code                                :mo9, 2026-09-19, 3d
+    Outbox + persistencia                  :mo13, 2026-09-19, 5d
     Foto - captura + associacao            :mo10, after mo8, 5d
     Localizacao inicio e fim               :mo11, after mo9, 3d
     Nao conformidade                       :mo12, after mo10, 4d
-    Outbox + persistencia                  :mo13, 2026-09-12, 5d
     Sync pull + conflitos                  :mo14, after mo13, 5d
     Tela sync + reprovacao                 :mo15, after mo14, 3d
-    Testes criticos                        :mo16, 2026-09-22, 5d
-    README + Build APK                     :mo17, 2026-09-26, 4d
-    Demo ponta a ponta                     :mo18, 2026-09-29, 3d
-    P1 - Notificacoes local + push         :mo19, after mo18, 3d
-    P1 - Assinatura + Biometria            :mo20, after mo18, 3d
-    P1 - Tema escuro mobile                :mo21, after mo19, 2d
+    Testes criticos                        :mo16, 2026-09-26, 5d
+    README + Build APK                     :mo17, 2026-09-29, 4d
+    Demo ponta a ponta                     :mo18, 2026-10-01, 2d
+
+    section Backend S3
+    P1 - Dashboard API                     :b14, 2026-10-03, 3d
+    P1 - Push + PDF + CSV                  :b15, after b14, 4d
+    P1 - Historico + Comentarios           :b16, after b14, 3d
+
+    section Web S3
+    P1 - Dashboard telas                   :w12, after b14, 3d
+    P1 - Tema escuro + PDF + CSV           :w13, after w12, 3d
+    P1 - Historico + Comentarios           :w14, after b16, 3d
+
+    section Mobile S3
+    P1 - Assinatura + Biometria            :mo20, 2026-10-03, 3d
+    P1 - Tema escuro mobile                :mo21, after mo20, 2d
+    P1 - Notificacoes local + push         :mo19, after b15, 3d
+
+    section Encerramento S3
+    Homologacao, correcoes e documentacao  :e1, 2026-10-13, 2026-11-24
 
     section Marcos
-    MVP funcional P0 completo              :milestone, m3, 2026-09-28, 0d
-    Entrega final com P1                   :milestone, m4, 2026-10-02, 0d
+    Fim da Sprint 1                        :milestone, m1, 2026-09-18, 0d
+    MVP funcional P0 completo (fim S2)     :milestone, m2, 2026-10-02, 0d
+    Entrega final com P1                   :milestone, m3, 2026-11-24, 0d
 ```
