@@ -1,4 +1,4 @@
-# Gerenciamento das Aquisições do Projeto — FieldOps
+﻿# Gerenciamento das Aquisições do Projeto — FieldOps
 
 > **Disciplina:** Gestão de Projetos — 4º semestre ADS
 > **Professor:** Me. Deivison S. Takatu
@@ -40,7 +40,7 @@ Antes de conduzir as aquisições, foram observadas as seguintes etapas do proce
 
 ## 3. Tabela de Gerenciamento das Aquisições — FieldOps
 
-> Estrutura conforme o modelo da disciplina. **Cód. EAP** = pacote de trabalho ou subentrega da [EAP](../Aula%2003%20-%2021.08.2026/aula03-EAP.pdf) (Aula 03) atendido pelo item. **Cód. orçamento** = item correspondente no [Orçamento](../Aula%2005%20-%2004.08.2025/aula05-orcamento-custos.md) (Aula 05): **B** = Infraestrutura e Nuvem · **C** = Ferramentas e Licenças · **D** = Equipamentos e Materiais. Legenda de período em Qtde: **mês** = assinatura mensal durante os ~2 meses do projeto · **un** = unidade · **lic** = licença por integrante.
+> Estrutura conforme o modelo da disciplina. **Cód. EAP** = pacote de trabalho ou subentrega da [EAP](../Aula%2003%20-%2021.08.2026/aula03-EAP.pdf) (Aula 03) atendido pelo item. **Cód. orçamento** = item correspondente no [Orçamento](../Aula%2005%20-%2004.09.2026/aula05-orcamento-custos.md) (Aula 05): **B** = Infraestrutura e Nuvem · **C** = Ferramentas e Licenças · **D** = Equipamentos e Materiais. Legenda de período em Qtde: **mês** = assinatura mensal durante os ~2 meses do projeto · **un** = unidade · **lic** = licença por integrante.
 
 | ID | Cód. EAP | Cód. orçamento | Item a ser adquirido | Urgência | Motivo da Decisão de Compra | Fornecedores potenciais | Qtde | Custo unitário | Custo total | Previsão entrega | Observações |
 |:--:|:--:|:--:|---|---|---|---|:--:|---:|---:|---|---|
