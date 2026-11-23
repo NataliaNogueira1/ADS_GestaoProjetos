@@ -48,8 +48,6 @@ Cada pasta de aula contém o material da aula (slides em PDF, quando disponível
 | [Aula 07](./Presencial/Aula%2007%20-%2025.09.2026) | 25/09/2026 | Gerenciamento de Riscos | Slides, análise de riscos, resumo da aula |
 | [Aula 08](./Presencial/Aula%2008%20-%2023.10.2026) | 23/10/2026 | Aquisições e Partes Interessadas | Slides, gerenciamento das aquisições, rede de poder/interesse, resumo da aula |
 
-> A pasta da Aula 05 mantém o nome `04.08.2025` no repositório. A data correta da aula é 04/09/2026.
-
 Outras pastas:
 
 | Pasta | Conteúdo |
