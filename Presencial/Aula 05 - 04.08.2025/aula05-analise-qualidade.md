@@ -13,7 +13,7 @@
 
 Este documento apresenta uma **análise da qualidade do Projeto FieldOps** aplicando as **Sete Ferramentas de Qualidade Básicas**, no contexto do processo de **Gerenciamento da Qualidade do Projeto** (PMBOK, área 8): planejar a qualidade, garantir a qualidade e controlar a qualidade.
 
-A análise usa como base os artefatos do projeto (README, EAP, Cronograma e Backlog) e dados simulados de acompanhamento de defeitos e inspeções, com o objetivo de identificar causas de problemas, priorizar ações e monitorar o desempenho.
+A análise usa como base os artefatos do projeto ([TAP](../Aula%2002%20-%2014.08.2026/Modelo%20-%204.1%20Termo%20de%20Abertura%20de%20Projeto.pdf), [EAP](../Aula%2003%20-%2021.08.2026/aula03-EAP.pdf), [Cronograma](../Aula%2004%20-%2028.08.2026/cronograma.md) e Backlog) e dados simulados de acompanhamento de defeitos e inspeções, com o objetivo de identificar causas de problemas, priorizar ações e monitorar o desempenho.
 
 ### O que entendemos por qualidade no FieldOps
 - **Atender às necessidades do cliente:** entregar o fluxo de inspeção ponta a ponta conforme os requisitos.
@@ -64,22 +64,22 @@ flowchart LR
 ```mermaid
 flowchart TD
     A[Supervisor agenda e atribui inspeção] --> B[Técnico baixa inspeção no mobile]
-    B --> C{Há conexão?}
-    C -->|Não| D[Executa checklist offline<br/>salva no SQLite]
-    C -->|Sim| E[Executa checklist online]
-    D --> F[Reconecta e sincroniza outbox]
-    E --> G[Envia respostas e evidências]
-    F --> G
-    G --> H{Validação de<br/>obrigatórios OK?}
-    H -->|Não| B
-    H -->|Sim| I[Supervisor revisa]
+    B --> C[Executa checklist no mobile<br/>respostas salvas no SQLite]
+    C --> H{Validação de obrigatórios<br/>no mobile OK?}
+    H -->|Não| C
+    H -->|Sim| D[Conclui inspeção<br/>alterações vão para a outbox]
+    D --> E{Há conexão?}
+    E -->|Não| F[Aguarda conexão<br/>dados preservados localmente]
+    F --> E
+    E -->|Sim| G[Sincroniza respostas e evidências com a API]
+    G --> I[Supervisor revisa no painel web]
     I --> J{Aprovado?}
     J -->|Sim| K[Inspeção aprovada]
     J -->|Não| L[Reprovada com motivo]
-    L --> B
+    L --> C
 ```
 
-**Análise:** o fluxograma evidencia dois pontos de controle de qualidade — a **validação de obrigatórios** (mobile) e a **revisão do supervisor** (web) — que atuam como barreiras de prevenção de defeitos antes da aprovação.
+**Análise:** o fluxograma evidencia dois pontos de controle de qualidade — a **validação de obrigatórios**, feita no próprio mobile antes de a inspeção ser concluída e enviada (PBI-040), e a **revisão do supervisor** (web) — que atuam como barreiras de prevenção de defeitos antes da aprovação. Como a validação ocorre no dispositivo, ela funciona mesmo sem conexão.
 
 ---
 
@@ -173,9 +173,12 @@ xychart-beta
 | 9 | 6 |
 | 10 | 5 |
 
-- **Média (linha central):** ~8,3%
-- **Limite Superior de Controle (LSC):** ~16%
-- **Limite Inferior de Controle (LIC):** ~0%
+**Cálculo dos limites (carta de valores individuais e amplitude móvel — I-MR):** os limites foram calculados com os 9 dias sem causa especial suspeita (o Dia 8 foi excluído do cálculo, prática usual para não inflar os limites com o próprio ponto investigado).
+
+- **Média (linha central):** 65 ÷ 9 = **7,2%**
+- **Amplitude móvel média (MR̄):** média das diferenças entre dias consecutivos (sem os pares que envolvem o Dia 8) = 17 ÷ 7 = **2,43**
+- **Limite Superior de Controle (LSC):** 7,2 + 2,66 × 2,43 = **13,7%**
+- **Limite Inferior de Controle (LIC):** 7,2 − 2,66 × 2,43 = **0,8%**
 
 ```mermaid
 %%{init: {'theme':'base'}}%%
@@ -184,11 +187,12 @@ xychart-beta
     x-axis ["D1","D2","D3","D4","D5","D6","D7","D8","D9","D10"]
     y-axis "Falhas (%)" 0 --> 20
     line [9,7,8,12,6,7,5,18,6,5]
-    line [8.3,8.3,8.3,8.3,8.3,8.3,8.3,8.3,8.3,8.3]
-    line [16,16,16,16,16,16,16,16,16,16]
+    line [7.2,7.2,7.2,7.2,7.2,7.2,7.2,7.2,7.2,7.2]
+    line [13.7,13.7,13.7,13.7,13.7,13.7,13.7,13.7,13.7,13.7]
+    line [0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8]
 ```
 
-**Análise:** o **Dia 8 (18%)** ultrapassa o LSC, indicando um ponto **fora de controle** — uma causa especial (provavelmente a instabilidade de rede/deploy daquele dia). Os demais pontos estão dentro dos limites (variação comum), mostrando um processo majoritariamente estável.
+**Análise:** o **Dia 8 (18%)** ultrapassa o LSC de 13,7%, indicando um ponto **fora de controle** — uma causa especial (provavelmente a instabilidade de rede/deploy daquele dia). Os demais pontos, incluindo o Dia 4 (12%), estão dentro dos limites (variação comum), mostrando um processo majoritariamente estável.
 
 ---
 
@@ -207,16 +211,26 @@ xychart-beta
 | 30 | 5 |
 | 35 | 6 |
 
+No diagrama abaixo, cada ponto é uma inspeção posicionada pelos seus valores reais: eixo X = itens no checklist (escala de 0 a 40) e eixo Y = defeitos (escala de 0 a 7). As coordenadas do gráfico são os valores divididos pelo máximo de cada eixo (ex.: 20 itens e 3 defeitos → x = 20/40 = 0,50; y = 3/7 = 0,43).
+
 ```mermaid
-%%{init: {'theme':'base'}}%%
-xychart-beta
-    title "Dispersao — Itens do checklist x Defeitos"
-    x-axis "Itens no checklist" 0 --> 40
-    y-axis "Defeitos" 0 --> 7
-    line [0,1,1,2,3,3,5,6]
+quadrantChart
+    title Dispersao - Itens do checklist x Defeitos
+    x-axis 0 itens --> 40 itens
+    y-axis 0 defeitos --> 7 defeitos
+    5 itens 0 def: [0.125, 0.01]
+    8 itens 1 def: [0.20, 0.143]
+    12 itens 1 def: [0.30, 0.143]
+    15 itens 2 def: [0.375, 0.286]
+    20 itens 3 def: [0.50, 0.429]
+    25 itens 3 def: [0.625, 0.429]
+    30 itens 5 def: [0.75, 0.714]
+    35 itens 6 def: [0.875, 0.857]
 ```
 
-**Análise:** existe uma **correlação positiva** — quanto mais itens no checklist, maior a tendência de defeitos. Isso reforça a necessidade de reforçar testes e validações em modelos de inspeção grandes (muitos itens/seções).
+**Coeficiente de correlação de Pearson:** r ≈ **0,98** (correlação positiva forte).
+
+**Análise:** os pontos sobem da esquerda para a direita e ficam próximos de uma reta, o que indica uma **correlação positiva** — quanto mais itens no checklist, maior a tendência de defeitos. Isso reforça a necessidade de reforçar testes e validações em modelos de inspeção grandes (muitos itens/seções).
 
 ---
 
